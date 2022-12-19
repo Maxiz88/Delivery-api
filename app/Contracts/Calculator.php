@@ -4,5 +4,5 @@ namespace App\Contracts;
 
 interface Calculator
 {
-    public function calculate();
+    public function calculate(): array;
 }

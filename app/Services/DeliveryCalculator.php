@@ -11,7 +11,10 @@ use App\Models\Package;
 
 class DeliveryCalculator implements Calculator
 {
-    public function calculate()
+    /**
+     * @return array
+     */
+    public function calculate(): array
     {
         $packages = Package::with('delivery.delivery_units.unit')->get();
         $data = [];
@@ -44,6 +47,11 @@ class DeliveryCalculator implements Calculator
         return $data;
     }
 
+    /**
+     * @param $name
+     * @param $value
+     * @return float|mixed
+     */
     public function convert($name, $value)
     {
         switch ($name) {
